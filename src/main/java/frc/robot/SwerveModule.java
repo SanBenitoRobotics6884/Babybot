@@ -5,22 +5,25 @@
 package frc.robot;
 
 import com.ctre.phoenix6.hardware.CANcoder;
-import com.ctre.phoenix6.hardware.TalonFX;
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 
+import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.controller.SimpleMotorFeedforward;
 import edu.wpi.first.wpilibj.Encoder;
 
 /** Add your docs here. */
 public class SwerveModule {
-    SparkMax m_SteerMotor = new SparkMax(0, MotorType.kBrushless);
-    TalonFX m_DriveMotor = new TalonFX(1);
+    SparkMax m_steerMotor = new SparkMax(0, MotorType.kBrushless);
+    SparkMax m_driveMotor = new SparkMax(1, MotorType.kBrushless);
 
-    CANcoder m_SteerAbsoluteEncoder = new CANcoder(0);
+    CANcoder m_steerAbsoluteEncoder = new CANcoder(0);
+    RelativeEncoder m_steerIntegratedEncoder = m_driveMotor.getEncoder();
 
-    SimpleMotorFeedforward m_Drive = new SimpleMotorFeedforward(0, 0);
-    SimpleMotorFeedforward m_Steer = new SimpleMotorFeedforward(0, 0);
+    PIDController m_PID = new PIDController(0, 0, 0);
 
-    Encoder m_Coder = new Encoder(0 ,0);
+    SimpleMotorFeedforward m_drive = new SimpleMotorFeedforward(0, 0);
+    SimpleMotorFeedforward m_steer = new SimpleMotorFeedforward(0, 0);
+    Encoder m_encoder = new Encoder(0,0);
 }
