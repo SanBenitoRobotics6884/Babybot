@@ -8,8 +8,8 @@ package frc.robot;
 public final class Constants {
 
     public static final class swerve {
-        public static final int FL_DRIVE_MOTOR_ID = 0;
-        public static final int FL_STEER_MOTOR_ID = 1;
+        public static final int FL_DRIVE_MOTOR_ID = 1;
+        public static final int FL_STEER_MOTOR_ID = 2;
         public static final int FR_DRIVE_MOTOR_ID = 3;
         public static final int FR_STEER_MOTOR_ID = 4;
         public static final int BL_DRIVE_MOTOR_ID = 5;
@@ -34,11 +34,11 @@ public final class Constants {
         public static final int BL_MAGNETOFFSET = 0;
         public static final int BR_MAGNETOFFSET = 0;
 
-        public static final double DRIVE_kP = 0;
+        public static final double DRIVE_kP = 0.001;
         public static final double DRIVE_kI = 0;
         public static final double DRIVE_kD = 0;
 
-        public static final double STEER_kP = 0;
+        public static final double STEER_kP = 0.001;
         public static final double STEER_kI = 0;
         public static final double STEER_kD = 0;
     }

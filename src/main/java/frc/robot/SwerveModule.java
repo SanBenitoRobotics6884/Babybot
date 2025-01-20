@@ -38,6 +38,7 @@ public class SwerveModule {
   public SwerveModule(int driveID, int steerID, int encoderID, boolean motorInverted, double magnetOffset) {
     m_driveMotor = new SparkMax(driveID, MotorType.kBrushless);
     m_steerMotor = new SparkMax(steerID, MotorType.kBrushless);
+    config = new SparkMaxConfig();
     config.inverted(motorInverted);
     m_driveMotor.configure(config, null, null);
     m_steerMotor.configure(config, null, null);
