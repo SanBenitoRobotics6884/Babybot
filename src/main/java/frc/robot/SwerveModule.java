@@ -15,6 +15,9 @@ import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.math.controller.PIDController;
 //import edu.wpi.first.math.controller.SimpleMotorFeedforward;
 
+
+import static frc.robot.Constants.swerve.*;
+
 /** Add your docs here. */
 public class SwerveModule {
   SparkMax m_steerMotor;
@@ -45,9 +48,9 @@ public class SwerveModule {
     m_steerAbsoluteEncoder = new CANcoder(encoderID);
     m_steerEncoder = m_driveMotor.getEncoder();
 
-    PIDController m_steerPID = new PIDController(0, 0, 0);
+    PIDController m_steerPID = new PIDController(DRIVE_kP, DRIVE_kI, DRIVE_kD);
     m_steerMotor.set(m_steerPID.calculate(m_steerEncoder.getPosition(), 0));
-    PIDController m_drivePID = new PIDController(0, 0, 0);
+    PIDController m_drivePID = new PIDController(STEER_kP, STEER_kI, STEER_kD);
     m_steerPID.close();
     m_driveMotor.set(m_drivePID.calculate(m_driveEncoder.getPosition(), 0));
     m_drivePID.close();

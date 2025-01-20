@@ -9,11 +9,17 @@ import com.ctre.phoenix6.hardware.Pigeon2;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.SwerveModule;
 
+import static frc.robot.Constants.swerve.*;
+
 public class SwerveSubsystem extends SubsystemBase {
-  SwerveModule m_FLmodule = new SwerveModule(0, 0, 0, true, 0);
-  SwerveModule m_FRmodule = new SwerveModule(0, 0, 0, true, 0);
-  SwerveModule m_BLmodule = new SwerveModule(0, 0, 0, true, 0);
-  SwerveModule m_BRmodule = new SwerveModule(0, 0, 0, true, 0);
+  SwerveModule m_FLmodule = new SwerveModule
+    (FL_DRIVE_MOTOR_ID, FL_STEER_MOTOR_ID, FL_ENCODER_ID, FL_MOTORS_INVERTED, FL_MAGNETOFFSET);
+  SwerveModule m_FRmodule = new SwerveModule
+    (FR_DRIVE_MOTOR_ID, FR_STEER_MOTOR_ID, FR_ENCODER_ID, FR_MOTORS_INVERTED, FR_MAGNETOFFSET);
+  SwerveModule m_BLmodule = new SwerveModule
+    (BL_DRIVE_MOTOR_ID, BL_STEER_MOTOR_ID, BL_ENCODER_ID, BL_MOTORS_INVERTED, BL_MAGNETOFFSET);
+  SwerveModule m_BRmodule = new SwerveModule
+    (BR_DRIVE_MOTOR_ID, BR_STEER_MOTOR_ID, BR_ENCODER_ID, BR_MOTORS_INVERTED, BR_MAGNETOFFSET);
 
   Pigeon2 m_gyro = new Pigeon2(0);
 

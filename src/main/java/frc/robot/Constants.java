@@ -16,5 +16,30 @@ public final class Constants {
         public static final int BL_STEER_MOTOR_ID = 6;
         public static final int BR_DRIVE_MOTOR_ID = 7;
         public static final int BR_STEER_MOTOR_ID = 8;
+
+        public static final int FL_ENCODER_ID = 9;
+        public static final int FR_ENCODER_ID = 10;
+        public static final int BL_ENCODER_ID = 11;
+        public static final int BR_ENCODER_ID = 12;
+
+        public static final int PIGEON_ID = 13;
+
+        public static final boolean FL_MOTORS_INVERTED = true;
+        public static final boolean FR_MOTORS_INVERTED = true;
+        public static final boolean BL_MOTORS_INVERTED = true;
+        public static final boolean BR_MOTORS_INVERTED = true;
+
+        public static final int FL_MAGNETOFFSET = 0;
+        public static final int FR_MAGNETOFFSET = 0;
+        public static final int BL_MAGNETOFFSET = 0;
+        public static final int BR_MAGNETOFFSET = 0;
+
+        public static final double DRIVE_kP = 0;
+        public static final double DRIVE_kI = 0;
+        public static final double DRIVE_kD = 0;
+
+        public static final double STEER_kP = 0;
+        public static final double STEER_kI = 0;
+        public static final double STEER_kD = 0;
     }
 }
