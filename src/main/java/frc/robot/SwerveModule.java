@@ -27,7 +27,7 @@ public class SwerveModule {
   CANcoder m_steerAbsoluteEncoder;
   RelativeEncoder m_steerEncoder;
   RelativeEncoder m_driveEncoder;
-
+  // bless this with zack tuah
   /**
   VelocityVoltage m_voltage = new VelocityVoltage(0);
 
@@ -47,7 +47,8 @@ public class SwerveModule {
     magnetConfig.MagnetOffset = magnetOffset;
 
     m_steerAbsoluteEncoder = new CANcoder(encoderID);
-    m_steerEncoder = m_driveMotor.getEncoder();
+    m_steerEncoder = m_steerMotor.getEncoder();
+    m_driveEncoder = m_driveMotor.getEncoder();
 
     PIDController m_steerPID = new PIDController(DRIVE_kP, DRIVE_kI, DRIVE_kD);
     m_steerMotor.set(m_steerPID.calculate(m_steerEncoder.getPosition(), 0));
