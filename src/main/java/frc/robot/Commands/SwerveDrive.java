@@ -22,7 +22,6 @@ public class SwerveDrive extends Command {
     m_swerveSubsystem = subsystem;
     m_forward = forward;
     m_rotation = rotation;
-    m_strafe = strafe;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -33,7 +32,10 @@ public class SwerveDrive extends Command {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    m_swerveSubsystem.driveRobotOriented(
+        m_forward.getAsDouble(), m_rotation.getAsDouble());
+  }
 
   // Called once the command ends or is interrupted.
   @Override

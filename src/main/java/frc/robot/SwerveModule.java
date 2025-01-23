@@ -14,7 +14,7 @@ import com.revrobotics.spark.config.SparkMaxConfig;
 
 import edu.wpi.first.math.controller.PIDController;
 //import edu.wpi.first.math.controller.SimpleMotorFeedforward;
-
+//import edu.wpi.first.math.kinematics.SwerveModuleState;
 
 import static frc.robot.Constants.swerve.*;
 
@@ -35,7 +35,7 @@ public class SwerveModule {
   SimpleMotorFeedforward m_steer = new SimpleMotorFeedforward(0, 0);
   */
 
-  public SwerveModule(int driveID, int steerID, int encoderID, boolean motorInverted, double magnetOffset) {
+  public SwerveModule(int driveID, int steerID, int encoderID, boolean motorInverted, double magnetOffset, double driveSpeed, double steerSpeed) {
     m_driveMotor = new SparkMax(driveID, MotorType.kBrushless);
     m_steerMotor = new SparkMax(steerID, MotorType.kBrushless);
     config = new SparkMaxConfig();
@@ -56,5 +56,8 @@ public class SwerveModule {
     m_steerPID.close();
     m_driveMotor.set(m_drivePID.calculate(m_driveEncoder.getPosition(), 0));
     m_drivePID.close();
+    
+    m_driveMotor.set(driveSpeed);
+    m_steerMotor.set(steerSpeed);
   }
 }

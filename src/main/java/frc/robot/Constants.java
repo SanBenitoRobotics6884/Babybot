@@ -29,10 +29,10 @@ public final class Constants {
         public static final boolean BL_MOTORS_INVERTED = true;
         public static final boolean BR_MOTORS_INVERTED = true;
 
-        public static final int FL_MAGNETOFFSET = 0;
-        public static final int FR_MAGNETOFFSET = 0;
-        public static final int BL_MAGNETOFFSET = 0;
-        public static final int BR_MAGNETOFFSET = 0;
+        public static final double FL_MAGNETOFFSET = -0.379638671875;
+        public static final double FR_MAGNETOFFSET = -0.320556640625;
+        public static final double BL_MAGNETOFFSET = -0.15234375;
+        public static final double BR_MAGNETOFFSET = 0.078369140625;
 
         public static final double DRIVE_kP = 0.001;
         public static final double DRIVE_kI = 0;
@@ -41,5 +41,7 @@ public final class Constants {
         public static final double STEER_kP = 0.001;
         public static final double STEER_kI = 0;
         public static final double STEER_kD = 0;
+
+        public static final boolean SQUARED_INPUTS = true;
     }
 }

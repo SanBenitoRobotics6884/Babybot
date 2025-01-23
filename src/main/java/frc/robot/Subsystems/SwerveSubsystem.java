@@ -12,6 +12,12 @@ import frc.robot.SwerveModule;
 import static frc.robot.Constants.swerve.*;
 
 public class SwerveSubsystem extends SubsystemBase {
+  SwerveModule m_FLmodule;
+  SwerveModule m_FRmodule;
+  SwerveModule m_BLmodule;
+  SwerveModule m_BRmodule;
+
+  /**
   SwerveModule m_FLmodule = new SwerveModule
     (FL_DRIVE_MOTOR_ID, FL_STEER_MOTOR_ID, FL_ENCODER_ID, FL_MOTORS_INVERTED, FL_MAGNETOFFSET);
   SwerveModule m_FRmodule = new SwerveModule
@@ -20,8 +26,9 @@ public class SwerveSubsystem extends SubsystemBase {
     (BL_DRIVE_MOTOR_ID, BL_STEER_MOTOR_ID, BL_ENCODER_ID, BL_MOTORS_INVERTED, BL_MAGNETOFFSET);
   SwerveModule m_BRmodule = new SwerveModule
     (BR_DRIVE_MOTOR_ID, BR_STEER_MOTOR_ID, BR_ENCODER_ID, BR_MOTORS_INVERTED, BR_MAGNETOFFSET);
+ */
 
-  Pigeon2 m_gyro = new Pigeon2(0);
+  Pigeon2 m_gyro = new Pigeon2(PIGEON_ID);
 
   /** Creates a new SwerveSubsystem. */
   public SwerveSubsystem() {
@@ -34,5 +41,16 @@ public class SwerveSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+  }
+
+  public void driveRobotOriented(double driveSpeed, double steerSpeed) {
+    m_FLmodule = new SwerveModule
+      (FL_DRIVE_MOTOR_ID, FL_STEER_MOTOR_ID, FL_ENCODER_ID, FL_MOTORS_INVERTED, FL_MAGNETOFFSET, driveSpeed, steerSpeed);
+    m_FRmodule = new SwerveModule
+      (FR_DRIVE_MOTOR_ID, FR_STEER_MOTOR_ID, FR_ENCODER_ID, FR_MOTORS_INVERTED, FR_MAGNETOFFSET, driveSpeed, steerSpeed);
+    m_BLmodule = new SwerveModule
+      (BL_DRIVE_MOTOR_ID, BL_STEER_MOTOR_ID, BL_ENCODER_ID, BL_MOTORS_INVERTED, BL_MAGNETOFFSET, driveSpeed, steerSpeed);
+    m_BRmodule = new SwerveModule
+      (BR_DRIVE_MOTOR_ID, BR_STEER_MOTOR_ID, BR_ENCODER_ID, BR_MOTORS_INVERTED, BR_MAGNETOFFSET, driveSpeed, steerSpeed);
   }
 }
